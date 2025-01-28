@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Copyright Date Block
- * Description:       Example block scaffolded with Create Block tool.
+ * Description:       A block that displays the current year.
  * Version:           0.1.0
  * Requires at least: 6.7
  * Requires PHP:      7.4
@@ -10,7 +10,7 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       copyright-date-block
  *
- * @package CreateBlock
+ * @package copyright-date
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function create_block_copyright_date_block_block_init() {
-	register_block_type( __DIR__ . '/build/copyright-date-block' );
+add_action( 'init', 'copyright_date_copyright_date_block_block_init' );
+function copyright_date_copyright_date_block_block_init() {
+    register_block_type( __DIR__ . '/build' );
 }
-add_action( 'init', 'create_block_copyright_date_block_block_init' );
