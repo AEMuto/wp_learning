@@ -11,8 +11,8 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
-
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
+import { PanelBody, TextControl } from '@wordpress/components';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -29,13 +29,14 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit(props) {
+	const startingYear = props.attributes.startingYear;
 	return (
 		<p { ...useBlockProps() }>
 			{ __(
-				'Copyright Date Block – hello from the editor!',
+				'Copyright',
 				'copyright-date-block'
-			) }
+			) } &copy; {startingYear} - { new Date().getFullYear() }
 		</p>
 	);
 }
