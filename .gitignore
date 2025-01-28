@@ -1,0 +1,13 @@
+plugins/*
+!plugins/.gitkeep
+themes/*
+!themes/.gitkeep
+uploads/*
+!uploads/.gitkeep
+wordpress/*
+!wordpress/.gitkeep
+backups/*
+!backups/.gitkeep
+.docker-compose.yml.*
+.env
+.vscode/settings.json
