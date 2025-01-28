@@ -1,5 +1,3 @@
-plugins/*
-!plugins/.gitkeep
 themes/*
 !themes/.gitkeep
 uploads/*
@@ -11,3 +9,7 @@ backups/*
 .docker-compose.yml.*
 .env
 .vscode/settings.json
+
+plugins/akismet
+plugins/hello.php
+plugins/index.php

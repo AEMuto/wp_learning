@@ -43,7 +43,7 @@ clean:
 
 # Fix permissions for WordPress directories
 .PHONY: fix
-permissions:
+fix:
 	@echo "Setting WordPress directory permissions..."
 	
 	# First ensure the directories exist and have .gitkeep files
