@@ -15,10 +15,13 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"align": true,
+		"typography": {
+			"textAlign": true
+		}
 	},
 	"textdomain": "copyright-date-block",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css"
 }
