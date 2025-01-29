@@ -1,1 +1,1 @@
-alert('Hello from the book store');
+console.log('bookstore.js loaded');
