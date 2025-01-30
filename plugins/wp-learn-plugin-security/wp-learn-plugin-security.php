@@ -133,7 +133,7 @@ function wp_learn_maybe_process_form() {
 		!isset($_POST['wp_learn_form_nonce_field']) ||
 		!wp_verify_nonce($_POST['wp_learn_form_nonce_field'], 'wp_learn_form_action')
 	) {
-		wp_redirect(WPLEARN_ERROR_PAGE_SLUG);
+		wp_safe_redirect(WPLEARN_ERROR_PAGE_SLUG);
 		die();
 	}
 	//! $name = $_POST['name'];
@@ -154,11 +154,11 @@ function wp_learn_maybe_process_form() {
 		)
 	);
 	if (0 < $result) {
-		wp_redirect(WPLEARN_SUCCESS_PAGE_SLUG);
+		wp_safe_redirect(WPLEARN_SUCCESS_PAGE_SLUG);
 		die();
 	}
 
-	wp_redirect(WPLEARN_ERROR_PAGE_SLUG);
+	wp_safe_redirect(WPLEARN_ERROR_PAGE_SLUG);
 	die();
 }
 
@@ -224,7 +224,11 @@ function wp_learn_get_form_submissions() {
  */
 add_action('wp_ajax_delete_form_submission', 'wp_learn_delete_form_submission');
 function wp_learn_delete_form_submission() {
+	// Generally we want to check csrf vulns first then broken access control
 	check_ajax_referer('wp_learn_ajax_nonce');
+	if (!current_user_can('manage_options')) {
+		return wp_send_json(array('result' => 'Insufficient permissions'));
+	}
 
 	//! $id = $_POST['id']; was the original code and is vulnerable to SQL injection
 	$id = (int) $_POST['id'];
