@@ -10,6 +10,17 @@ if (! defined('ABSPATH')) {
   exit; // Exit if accessed directly
 }
 
+// Add a "location" metadata
+add_action('init', 'wp_learn_register_meta');
+function wp_learn_register_meta() {
+  register_meta('post', 'location', array(
+    'show_in_rest' => true,
+    'single' => true,
+    'type' => 'string',
+    'default' => 'USA',
+  ));
+}
+
 // Register custom post type
 add_action('init', 'bookstore_register_book_post_type');
 function bookstore_register_book_post_type() {
@@ -35,10 +46,24 @@ function bookstore_register_book_post_type() {
     'has_archive' => true,
     'show_in_rest' => true,
     'rest_base' => 'books',
-    'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt'),
+    // We add the 'custom-fields' support to allow the ISBN field to be displayed in the editor
+    'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields'),
   );
 
   register_post_type('book', $args);
+  // We add the 'isbn' meta field to the book post type and make it available in the REST API
+  // It will be only available to the book post type
+  register_meta(
+    'post',
+    'isbn',
+    array(
+      'single' => true,
+      'type' => 'string',
+      'default' => '',
+      'show_in_rest' => true,
+      'object_subtype' => 'book',
+    )
+  );
 };
 
 add_action('admin_menu', 'bookstore_add_booklist_submenu', 11);
@@ -56,10 +81,22 @@ function bookstore_render_booklist() {
 ?>
   <div class="wrap" id="bookstore-booklist-admin">
     <h1>Actions</h1>
-    <button id="bookstore-load-books">Load Books from wp-api</button>
-    <button id="bookstore-fetch-books">Fetch Books from wp-api-fetch</button>
+    <div>
+      <button id="bookstore-load-books">Load Books from wp-api</button>
+      <button id="bookstore-fetch-books">Fetch Books from wp-api-fetch</button>
+    </div>
     <h2>Books</h2>
-    <textarea id="bookstore-booklist" cols="125" rows="15"></textarea>
+    <textarea id="bookstore-booklist"></textarea>
+    <h2>Add a new book</h2>
+    <form id="bookstore-add-book">
+      <label for="bookstore-book-title">Title
+        <input type="text" id="bookstore-book-title" name="bookstore-book-title" required>
+      </label>
+      <label for="bookstore-book-content">Content
+        <textarea id="bookstore-book-content" name="bookstore-book-content" required></textarea>
+      </label>
+      <button type="submit" id="bookstore-add-book-submit-button">Add Book</button>
+    </form>
   </div>
 <?php
 }
@@ -131,4 +168,33 @@ function bookstore_admin_enqueue_scripts() {
     '1.0.0',
     true
   );
+  wp_enqueue_style(
+    'bookstore-admin',
+    plugins_url() . '/bookstore/admin_bookstore.css',
+  );
+}
+
+// We can also add custom fields to the REST API
+add_action('rest_api_init', 'bookstore_add_rest_fields');
+function bookstore_add_rest_fields() {
+  register_rest_field(
+    'book',
+    'isbn',
+    array(
+      'get_callback' => 'bookstore_rest_get_isbn',
+      'update_callback' => 'bookstore_rest_update_isbn',
+      'schema' => array(
+        'description' => 'The ISBN of the book',
+        'type' => 'string',
+        'context' => array('view', 'edit'),
+      ),
+    )
+  );
+}
+// It gives us more control over the data that is returned or updated via the REST API
+function bookstore_rest_get_isbn(array $book) {
+  return get_post_meta($book['id'], 'isbn', true);
+}
+function bookstore_rest_update_isbn(string $isbn, WP_Post $book) {
+  return update_post_meta($book->ID, 'isbn', $isbn);
 }
