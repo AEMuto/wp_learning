@@ -1,12 +1,11 @@
 <?php
-// Separate data preparation from presentation
+
 $books = get_posts([
   'post_type' => 'book',
   'posts_per_page' => -1,
   'fields' => 'all'
 ]);
 
-// Helper function to make the code more declarative
 function render_book_link($book) {
   $url = get_permalink($book);
   $title = get_the_title($book);
@@ -16,12 +15,17 @@ function render_book_link($book) {
     esc_html($title)
   );
 }
+
 ?>
 
-<div <?= get_block_wrapper_attributes() ?>>
-  <ul>
-    <?php foreach ($books as $book): ?>
-      <?= render_book_link($book) ?>
-    <?php endforeach ?>
-  </ul>
+<div <? echo get_block_wrapper_attributes() ?>>
+  <?php if (!empty($books)) : ?>
+    <ul>
+      <?php foreach ($books as $book): ?>
+        <? echo render_book_link($book) ?>
+      <?php endforeach ?>
+    </ul>
+  <?php else : ?>
+    <p>No books found</p>
+  <?php endif ?>
 </div>
