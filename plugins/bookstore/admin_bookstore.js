@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadBooksButton = document.getElementById('bookstore-load-books');
   const fetchBooksButton = document.getElementById('bookstore-fetch-books');
   const booksContainer = document.getElementById('bookstore-booklist');
+  const bookAddForm = document.getElementById('bookstore-add-book');
 
   if (!loadBooksButton || !booksContainer || !fetchBooksButton) return;
 
@@ -23,6 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   })
+
+  bookAddForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const title = document.getElementById('bookstore-book-title').value;
+    const content = document.getElementById('bookstore-book-content').value;
+    wp.apiFetch({
+      path: '/wp/v2/books',
+      method: 'POST',
+      data: { title, content },
+    }).then((res) => {
+      alert('Book added');
+      console.log(res);
+      console.log(event);
+    });
+  });
 
 });
 
