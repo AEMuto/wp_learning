@@ -1,0 +1,71 @@
+#bookstore-booklist-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+#bookstore-booklist-admin h1,
+#bookstore-booklist-admin h2 {
+  margin: 0;
+}
+
+#bookstore-booklist-admin form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#bookstore-booklist-admin textarea {
+  min-height: 200px;
+}
+
+#bookstore-booklist-admin label {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#bookstore-booklist-admin label input,
+#bookstore-booklist-admin label textarea {
+  font-weight: 400;
+}
+
+#bookstore-booklist-admin button {
+  /* margin: 0 auto; */
+  align-self: flex-start;
+  margin-right: 0.75rem;
+  padding: 0.5rem 1rem;
+  min-height: 44px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #007cba;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 0.25rem;
+}
+
+#bookstore-booklist-admin button:hover {
+  background-color: #005f7b;
+}
+
+#bookstore-booklist-admin button:active
+{
+  background-color: #002f3b;
+}
+
+#bookstore-booklist-admin button[type="submit"] {
+  background-color: #00d282;
+}
+
+#bookstore-booklist-admin button[type="submit"]:hover {
+  background-color: #00b96b;
+}
+
+#bookstore-booklist-admin button[type="submit"]:active {
+  background-color: #00502c;
+}
