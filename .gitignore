@@ -13,3 +13,4 @@ backups/*
 plugins/akismet
 plugins/hello.php
 plugins/index.php
+plugins/create-block-theme
