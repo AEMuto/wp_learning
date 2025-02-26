@@ -1,0 +1,31 @@
+.wp-block-serinity-featured-box {
+  padding: 24px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .featured-box-title {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+
+  .featured-box-content {
+    font-size: 1em;
+    line-height: 1.6;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    padding: 16px;
+
+    .featured-box-title {
+      font-size: 1.3em;
+    }
+  }
+}

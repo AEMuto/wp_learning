@@ -1,0 +1,301 @@
+{
+	"settings": {
+		"appearanceTools": true,
+		"color": {
+			"defaultDuotone": false,
+			"defaultGradients": false,
+			"defaultPalette": false,
+			"duotone": [],
+			"gradients": [],
+			"palette": [
+				{
+					"color": "#c4c2a9",
+					"name": "Sable",
+					"slug": "sable"
+				},
+				{
+					"color": "#d1b7b8",
+					"name": "Rose",
+					"slug": "rose"
+				},
+				{
+					"color": "#3b3b33",
+					"name": "Taupe",
+					"slug": "taupe"
+				},
+				{
+					"color": "#866a5f",
+					"name": "Terre",
+					"slug": "terre"
+				},
+				{
+					"color": "#ab9bb0",
+					"name": "Aubergine",
+					"slug": "aubergine"
+				},
+				{
+					"color": "#f3ede7",
+					"name": "Nacre",
+					"slug": "nacre"
+				},
+				{
+					"color": "#767351",
+					"name": "Sable sombre",
+					"slug": "sable-sombre"
+				},
+				{
+					"color": "#9b6466",
+					"name": "Rose sombre",
+					"slug": "rose-sombre"
+				},
+				{
+					"color": "#21211c",
+					"name": "Taupe sombre",
+					"slug": "taupe-sombre"
+				},
+				{
+					"color": "#5c4942",
+					"name": "Terre sombre",
+					"slug": "terre-sombre"
+				},
+				{
+					"color": "#7a6580",
+					"name": "Aubergine sombre",
+					"slug": "aubergine-sombre"
+				},
+				{
+					"color": "#e2d4c5",
+					"name": "Nacre sombre",
+					"slug": "nacre-sombre"
+				},
+				{
+					"color": "#dad8c9",
+					"name": "Sable claire",
+					"slug": "sable-claire"
+				},
+				{
+					"color": "#e5d7d7",
+					"name": "Rose claire",
+					"slug": "rose-claire"
+				},
+				{
+					"color": "#898976",
+					"name": "Taupe claire",
+					"slug": "taupe-claire"
+				},
+				{
+					"color": "#c2b0a9",
+					"name": "Terre claire",
+					"slug": "terre-claire"
+				},
+				{
+					"color": "#cfc6d2",
+					"name": "Aubergine claire",
+					"slug": "aubergine-claire"
+				},
+				{
+					"color": "#faf8f6",
+					"name": "Nacre claire",
+					"slug": "nacre-claire"
+				}
+			]
+		},
+		"layout": {
+			"contentSize": "620px",
+			"wideSize": "1440px"
+		},
+		"shadow": {
+			"presets": []
+		},
+		"spacing": {
+			"defaultSpacingSizes": false,
+			"units": [
+				"%",
+				"px",
+				"em",
+				"rem",
+				"vh",
+				"vw",
+				"ch",
+				"dvh",
+				"dvw"
+			],
+			"spacingSizes": [
+				{
+					"name": "Tiny",
+					"size": "8px",
+					"slug": "tiny"
+				},
+				{
+					"name": "Small",
+					"size": "16px",
+					"slug": "small"
+				},
+				{
+					"name": "Medium ( 32px / 24px )",
+					"size": "clamp(24px, calc(1.5rem + ((1vw - 7.68px) * 1.5625)), 32px)",
+					"slug": "medium"
+				},
+				{
+					"name": "Large ( 32px / 48px )",
+					"size": "clamp(32px, calc(2rem + ((1vw - 7.68px) * 3.125)), 48px)",
+					"slug": "large"
+				},
+				{
+					"name": "Extra Large ( 32px / 64px )",
+					"size": "clamp(32px, calc(2rem + ((1vw - 7.68px) * 6.25)), 64px)",
+					"slug": "x-large"
+				},
+				{
+					"name": "2xl ( 32px / 80px )",
+					"size": "clamp(32px, calc(2rem + ((1vw - 7.68px) * 9.375)), 80px)",
+					"slug": "xx-large"
+				},
+				{
+					"name": "3xl ( 48px / 96px )",
+					"size": "clamp(48px, calc(3rem + ((1vw - 7.68px) * 9.375)), 96px)",
+					"slug": "xxx-large"
+				}
+			],
+			"blockGap": true,
+			"padding": true,
+			"margin": true
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"fontFace": [
+						{
+							"fontFamily": "eskorte-latin",
+							"fontStyle": "normal",
+							"fontWeight": "700",
+							"src": [
+								"https://use.typekit.net/rff2woq.css"
+							]
+						},
+						{
+							"fontFamily": "eskorte-latin",
+							"fontStyle": "italic",
+							"fontWeight": "700",
+							"src": [
+								"https://use.typekit.net/rff2woq.css"
+							]
+						}
+					],
+					"fontFamily": "\"eskorte-latin\", serif",
+					"name": "Eskorte Latin",
+					"slug": "heading"
+				},
+				{
+					"fontFace": [
+						{
+							"fontFamily": "elza-round-variable",
+							"fontStyle": "normal",
+							"fontWeight": "100 900",
+							"src": [
+								"https://use.typekit.net/rff2woq.css"
+							]
+						},
+						{
+							"fontFamily": "elza-round-variable",
+							"fontStyle": "italic",
+							"fontWeight": "100 900",
+							"src": [
+								"https://use.typekit.net/rff2woq.css"
+							]
+						}
+					],
+					"fontFamily": "\"elza-round-variable\", sans-serif",
+					"name": "Elza Round Variable",
+					"slug": "body"
+				}
+			],
+			"fontSizes": []
+		},
+		"useRootPaddingAwareAlignments": true
+	},
+	"styles": {
+		"blocks": {
+			"core/navigation-link": {
+				"typography": {
+					"fontSize": "18px",
+					"fontStyle": "normal",
+					"fontWeight": "600",
+					"textTransform": "uppercase"
+				}
+			}
+		},
+		"color": {
+			"background": "var(--wp--preset--color--nacre)",
+			"text": "var(--wp--preset--color--taupe-sombre)"
+		},
+		"elements": {
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--rose-sombre)",
+					"text": "var(--wp--preset--color--nacre-claire)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--body)",
+					"fontStyle": "normal",
+					"fontWeight": "400"
+				}
+			},
+			"caption": {
+				"color": {
+					"text": "var(--wp--preset--color--rose-sombre)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--body)",
+					"fontSize": "var(--wp--preset--font-size--medium)",
+					"fontStyle": "italic",
+					"fontWeight": "400"
+				}
+			},
+			"heading": {
+				"color": {
+					"text": "var(--wp--preset--color--taupe-sombre)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontStyle": "normal",
+					"fontWeight": "700"
+				}
+			},
+			"link": {
+				":hover": {
+					"color": {
+						"text": "var(--wp--preset--color--aubergine-sombre)"
+					}
+				},
+				"color": {
+					"text": "var(--wp--preset--color--taupe-sombre)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--body)",
+					"fontSize": "var(--wp--preset--font-size--medium)",
+					"fontStyle": "normal",
+					"fontWeight": "400"
+				}
+			}
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--body)",
+			"fontSize": "var(--wp--preset--font-size--medium)",
+			"fontStyle": "normal",
+			"fontWeight": "400"
+		}
+	},
+	"templateParts": [
+		{
+			"area": "header",
+			"name": "header"
+		},
+		{
+			"area": "footer",
+			"name": "footer"
+		}
+	],
+	"version": 3,
+	"$schema": "https://schemas.wp.org/wp/6.7/theme.json"
+}

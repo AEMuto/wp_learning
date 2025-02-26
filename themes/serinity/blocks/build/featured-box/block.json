@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "serinity/featured-box",
+  "title": "Featured Box",
+  "category": "design",
+  "icon": "star-filled",
+  "description": "Display important content in a highlighted box.",
+  "textdomain": "serinity",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#f8f9fa"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.scss",
+  "style": "file:./style.scss",
+  "render": "file:./render.php"
+}

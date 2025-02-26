@@ -1,5 +1,6 @@
 themes/*
 !themes/.gitkeep
+!themes/serinity
 uploads/*
 !uploads/.gitkeep
 wordpress/*
@@ -10,7 +11,4 @@ backups/*
 .env
 .vscode/settings.json
 
-plugins/akismet
-plugins/hello.php
-plugins/index.php
-plugins/create-block-theme
+plugins/*

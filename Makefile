@@ -10,7 +10,7 @@ help:
 	@echo "Available commands:"
 	@echo "  make up          - Start Docker containers"
 	@echo "  make clean       - Stop containers and clean workspace"
-	@echo "  make fix - Fix permissions for WordPress files"
+	@echo "  make fix         - Fix permissions for WordPress files"
 
 # Start the development environment
 .PHONY: up
