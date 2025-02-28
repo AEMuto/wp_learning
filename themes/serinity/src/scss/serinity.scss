@@ -1,0 +1,38 @@
+@import "variables";
+@import "reset";
+@import "header";
+@import "footer";
+@import "content";
+
+// Blur effect
+.serinity-blur {
+  backdrop-filter: blur(20px);
+}
+
+.serinity-wave-background {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 1816 / 374;
+  overflow: hidden;
+  
+  @media (max-width: 1110px) {
+    min-height: 30dvh;
+    aspect-ratio: unset; // Remove the aspect ratio on mobile to allow the min-height to take effect
+    svg {
+      // height: 100%; // Make the SVG height match the container
+      // width: auto; // Allow the width to adjust based on the height
+      min-width: unset;
+      max-width: unset;
+    }
+  }
+  
+  svg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); // Center the SVG horizontally
+    height: 100%; // Make the SVG height match the container
+    width: auto; // Allow the width to adjust based on the height
+    min-width: 100%; // Ensure it's at least as wide as the container
+  }
+}
