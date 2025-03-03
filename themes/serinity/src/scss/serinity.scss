@@ -3,10 +3,48 @@
 @import "header";
 @import "footer";
 @import "content";
+@import "mixins";
+@import"landing-page";
 
-// Blur effect
 .serinity-blur {
   backdrop-filter: blur(20px);
+}
+
+.serinity-section {
+  position: relative;
+}
+
+.serinity-heading-bg {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+}
+
+.serinity-emphasis {
+  font-family: "eskorte-latin";
+  font-weight: 700;
+  font-style: italic;
+}
+
+.serinity-bandeau {
+  position: absolute;
+  bottom: 10%;
+  left:0;
+  right: 0;
+  text-align: center;
+  z-index: 1;
+  width: 100%;
+  @include serinity-blur(20px);
+  padding: 1rem;
+  font-family: var(--wp--preset--font-family--body);
+  font-size: clamp(1rem, 0.6667rem + 1.6667vw, 2rem);
 }
 
 .serinity-wave-background {
@@ -19,8 +57,6 @@
     min-height: 30dvh;
     aspect-ratio: unset; // Remove the aspect ratio on mobile to allow the min-height to take effect
     svg {
-      // height: 100%; // Make the SVG height match the container
-      // width: auto; // Allow the width to adjust based on the height
       min-width: unset;
       max-width: unset;
     }
@@ -28,6 +64,7 @@
   
   svg {
     position: absolute;
+    z-index: 0;
     top: 0;
     left: 50%;
     transform: translateX(-50%); // Center the SVG horizontally

@@ -1,0 +1,4 @@
+@mixin serinity-blur($blur: 20px, $color: rgba(250, 248, 246, 0.5)) {
+  backdrop-filter: blur($blur);
+  background-color: $color;
+}
