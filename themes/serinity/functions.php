@@ -49,46 +49,17 @@ function serinity_enqueue_assets() {
     $css_version
   );
   
-  // Detect older browsers
-  $is_IE = isset($_SERVER['HTTP_USER_AGENT']) && 
-           (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false || 
-            strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== false);
-  
-  // Conditionally load legacy script for IE
-  if ($is_IE) {
-    // Load polyfills first
-    $polyfill_file = get_template_directory() . '/assets/polyfills-legacy.js';
-    $polyfill_version = file_exists($polyfill_file) ? filemtime($polyfill_file) : '1.0';
-    wp_enqueue_script(
-      'serenity-polyfills',
-      get_template_directory_uri() . '/assets/polyfills-legacy.js',
-      array(),
-      $polyfill_version,
-      false
-    );
-    
-    // Then load legacy script
-    $legacy_file = get_template_directory() . '/assets/js/serinity-legacy.js';
-    $legacy_version = file_exists($legacy_file) ? filemtime($legacy_file) : '1.0';
-    wp_enqueue_script(
-      'serenity-scripts-legacy',
-      get_template_directory_uri() . '/assets/js/serinity-legacy.js',
-      array('serenity-polyfills'),
-      $legacy_version,
-      true
-    );
-  } else {
-    // Load modern script for modern browsers
-    $js_file = get_template_directory() . '/assets/js/serinity.js';
-    $js_version = file_exists($js_file) ? filemtime($js_file) : '1.0';
-    wp_enqueue_script(
-      'serenity-scripts',
-      get_template_directory_uri() . '/assets/js/serinity.js',
-      array(),
-      $js_version,
-      true
-    );
-  }
+  // Load modern script for modern browsers
+  $js_file = get_template_directory() . '/assets/js/serinity.js';
+  $js_version = file_exists($js_file) ? filemtime($js_file) : '1.0';
+  wp_enqueue_script(
+    'serenity-scripts',
+    get_template_directory_uri() . '/assets/js/serinity.js',
+    array(),
+    $js_version,
+    true
+  );
+  wp_script_add_data('serenity-scripts', 'type', 'module');
 }
 add_action('wp_enqueue_scripts', 'serinity_enqueue_assets');
 

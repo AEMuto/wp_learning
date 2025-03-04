@@ -1,10 +1,11 @@
-@import "variables";
-@import "reset";
-@import "header";
-@import "footer";
-@import "content";
-@import "mixins";
-@import"landing-page";
+@use "variables" as *;
+@use "mixins" as *;
+@forward "reset";
+@forward "header";
+@forward "footer";
+@forward "content";
+@forward "landing-page";
+@forward "testimonies";
 
 .serinity-blur {
   backdrop-filter: blur(20px);
@@ -28,23 +29,12 @@
 }
 
 .serinity-emphasis {
-  font-family: "eskorte-latin";
-  font-weight: 700;
-  font-style: italic;
-}
-
-.serinity-bandeau {
-  position: absolute;
-  bottom: 10%;
-  left:0;
-  right: 0;
-  text-align: center;
-  z-index: 1;
-  width: 100%;
-  @include serinity-blur(20px);
-  padding: 1rem;
-  font-family: var(--wp--preset--font-family--body);
   font-size: clamp(1rem, 0.6667rem + 1.6667vw, 2rem);
+  em {
+    font-family: "eskorte-latin";
+    font-weight: 700;
+    font-style: italic;
+  }
 }
 
 .serinity-wave-background {
@@ -52,7 +42,18 @@
   position: relative;
   aspect-ratio: 1816 / 374;
   overflow: hidden;
-  
+
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .serinity-bandeau {
+    position:absolute;
+    width: 100%;
+    bottom: 10px;
+  }
+
   @media (max-width: 1110px) {
     min-height: 30dvh;
     aspect-ratio: unset; // Remove the aspect ratio on mobile to allow the min-height to take effect
@@ -61,7 +62,7 @@
       max-width: unset;
     }
   }
-  
+
   svg {
     position: absolute;
     z-index: 0;
