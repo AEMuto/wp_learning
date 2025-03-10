@@ -1,0 +1,3 @@
+[submodule "themes/serinity"]
+	path = themes/serinity
+	url = https://github.com/AEMuto/serinity.git
