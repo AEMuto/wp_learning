@@ -10,5 +10,4 @@ backups/*
 .docker-compose.yml.*
 .env
 .vscode/settings.json
-
 plugins/*
